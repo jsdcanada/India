@@ -2,6 +2,7 @@ package Gujarat;
 
 import PageObjects.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 import java.awt.*;
@@ -74,7 +75,7 @@ public class SmokeTestSuite extends BaseTest {
     PaymentPage paymentPage=new PaymentPage();
     ShoppinCartPage shoppinCartPage=new ShoppinCartPage();
 
-    @Test
+   //@Test
     public void verifyUserCanRegisterSuccesully() {
         homePage.goToRegisterPage();
         registerPage.userRegistration(firstname, lastname, birthday, birthmonth, birthyear, email, company, password, confirmpassword);
@@ -86,7 +87,7 @@ public class SmokeTestSuite extends BaseTest {
         homePage.logout();
     }
 
-    @Test
+   @Test
     public void userCanemailproductTofreind() {
         homePage.goToRegisterPage();
         registerPage.userRegistration(firstname, lastname, birthday, birthmonth, birthyear, email, company, password, confirmpassword);
@@ -98,7 +99,7 @@ public class SmokeTestSuite extends BaseTest {
         assertTrue(Utils.isTextPresent(emailsuccessmessage));
         homePage.logout();
     }
-    @Test
+   // @Test
     public void verifyUsercanBuyProductSuccessfully(){
         homePage.goToRegisterPage();
         registerPage.userRegistration(firstname, lastname, birthday, birthmonth, birthyear, email, company, password, confirmpassword);
@@ -121,11 +122,15 @@ public class SmokeTestSuite extends BaseTest {
         homePage.goToComputersPage();
         homePage.goToDesktopPage();
         productPage.addTocartButtoncheck();
-        homePage.goToElectronicPage();
-        homePage.goToCameraPhotoPage();
-        productPage.addTocartButtoncheck();
     }
+    @Test
+    public void verifyBuyitnownumberofproduts(){
+        driver=new FirefoxDriver();
+        driver.get("http://www.ebay.co.uk");
+        Utils.waitForPageToLoad(5);
+        Utils.enterText(By.id("gh-ac"), "Galaxy s2");
+        Utils.click(By.id("gh-btn"));
 
-
+    }
 
 }

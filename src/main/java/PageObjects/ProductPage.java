@@ -48,10 +48,9 @@ public class ProductPage extends BasePage {
             {
                 nobutton++;
                 System.out.println(Utils.getText(productnamefield) + "   NO ADD TO CART BUTTON ");
-                System.out.println(nobutton);
             }
         }
-        assertEquals(webElementList.size(), count);
+       assertEquals(webElementList.size(), count);
     }
 
 }
